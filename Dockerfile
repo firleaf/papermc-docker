@@ -19,6 +19,7 @@ EXPOSE 25565
 
 RUN apk add openjdk21-jre-headless
 COPY --from=downloader /data/paper-$VERSION-$BUILD.jar /app/paper.jar
+WORKDIR /mnt
 
 ENTRYPOINT java -Xmx$XMX -Xms$XMS -jar /app/paper.jar --nogui
 
